@@ -9,6 +9,8 @@ uncompress="$3"
 
 filename="$(basename "$url")"
 
+tgt_dir="./$tgt_dir"
+
 if wget -O "$tgt_dir/$filename" "$url"; then
     echo "Se ha descargado $tgt_dir/$filename"
 else
