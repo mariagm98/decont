@@ -5,7 +5,7 @@
 #   argument ($3) contains the word "yes" 
 url="$1"
 tgt_dir="$2"
-uncompress="$"
+uncompress="$3"
 
 filename=$(basename"$url")
 if wget -O "$tgt_dir/$filename" "$url"; then
