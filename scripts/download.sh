@@ -2,7 +2,26 @@
 # place it in the directory specified in the second argument ($2),
 # and *optionally*:
 # - uncompress the downloaded file with gunzip if the third
-#   argument ($3) contains the word "yes"
+#   argument ($3) contains the word "yes" 
+url="$1"
+tgt_dir="$2"
+uncompress="$"
+
+filename=$(basename"$url")
+if wget -O "$tgt_dir/$filename" "$url"; then
+    echo "Se ha descargado $tgt_dir/$filename"
+else
+    echo "Error al descargar $url"
+    exit 1
+fi
+
+if ["$uncompress" = "yes" ]; then
+    echo "Descomprimiendo $tgt_dir/$filename"
+    gunzip "$tgt_dir/$filename" || exit 1
+else
+    echo "El archivo ya esta descomprimido"
+fi
+
 # - filter the sequences based on a word contained in their header lines:
 #   sequences containing the specified word in their header should be **excluded**
 #
