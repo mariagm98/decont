@@ -1,7 +1,14 @@
 #Download all the files specified in data/filenames
-for url in $(<list_of_urls>) #TODO
+urls=( 
+    "https://bioinformatics.cnio.es/data/courses/decont/C57BL_6NJ-12.5dpp.1.1s_sRNA.fastq.gz"
+    "https://bioinformatics.cnio.es/data/courses/decont/C57BL_6NJ-12.5dpp.1.2s_sRNA.fastq.gz" 
+    "https://bioinformatics.cnio.es/data/courses/decont/SPRET_EiJ-12.5dpp.1.1s_sRNA.fastq.gz"
+    "https://bioinformatics.cnio.es/data/courses/decont/SPRET_EiJ-12.5dpp.1.2s_sRNA.fastq.gz"
+    )
+
+for url in ${urls[@]} #TODO
 do
-    bash scripts/download.sh $url data
+    bash scripts/download.sh "$url" data
 done
 
 # Download the contaminants fasta file, uncompress it, and
@@ -37,8 +44,4 @@ done
 # - cutadapt: Reads with adapters and total basepairs
 # - star: Percentages of uniquely mapped reads, reads mapped to multiple loci, and to too many loci
 # tip: use grep to filter the lines you're interested in
-#https://bioinformatics.cnio.es/data/courses/decont/C57BL_6NJ-12.5dpp.1.1s_sRNA.fastq.gz
-#https://bioinformatics.cnio.es/data/courses/decont/C57BL_6NJ-12.5dpp.1.2s_sRNA.fastq.gz
-#https://bioinformatics.cnio.es/data/courses/decont/SPRET_EiJ-12.5dpp.1.1s_sRNA.fastq.gz
-#https://bioinformatics.cnio.es/data/courses/decont/SPRET_EiJ-12.5dpp.1.2s_sRNA.fastq.gz
 #
