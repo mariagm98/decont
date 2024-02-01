@@ -16,13 +16,13 @@ done
 
 contaminants_url="https://bioinformatics.cnio.es/data/courses/decont/contaminants.fasta.gz"
 
-if [ ! -e "res/contaminants.fasta"]; then
+if [ ! -e "res/contaminants.fasta" ]; then
     bash scripts/download.sh "$contaminants_url" res yes
 else 
     echo "The contaminants database is ready. Indexing..."
 fi
 
-if [! -d "res/contaminants_index/" ]; then
+if [ ! -d "res/contaminants_index/" ]; then
     mkdir -p "res/contaminants_index"
 fi
 
