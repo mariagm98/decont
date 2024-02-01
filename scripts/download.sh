@@ -18,7 +18,7 @@ else
     exit 1
 fi
 
-if ["$uncompress" = "yes" ]; then
+if [ "$uncompress" = "yes" ]; then
     echo "Descomprimiendo $tgt_dir/$filename"
     gunzip "$tgt_dir/$filename" || exit 1
 else

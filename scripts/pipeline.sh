@@ -13,10 +13,24 @@ done
 
 # Download the contaminants fasta file, uncompress it, and
 # filter to remove all small nuclear RNAs
-bash scripts/download.sh <contaminants_url> res yes #TODO
 
-# Index the contaminants file
-bash scripts/index.sh res/contaminants.fasta res/contaminants_idx
+contaminants_url="https://bioinformatics.cnio.es/data/courses/decont/contaminants.fasta.gz"
+
+if [ ! -e "res/contaminants.fasta"]; then
+    bash scripts/download.sh "$contaminants_url" res yes
+else 
+    echo "The contaminants database is ready. Indexing..."
+fi
+
+if [! -d "res/contaminants_index/" ]; then
+    mkdir -p "res/contaminants_index"
+fi
+
+if [ ! -n "$(ls -A res/contaminants_index/ )" ]; then
+    bash scripts/index.sh res/contaminants.fasta res/contaminants_idx
+else
+    echo "Contaminants are already indexed."
+fi
 
 # Merge the samples into a single file
 for sid in $(<list_of_sample_ids>) #TODO
