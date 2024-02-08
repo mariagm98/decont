@@ -8,5 +8,5 @@ index_dir="$2"
 # The STAR command is provided for you. You should replace the parts surrounded
 # by "<>" and uncomment it.
 
-STAR --runThreadN 4 --runMode genomeGenerate --genomeDir {$index_dir} \
---genomeFastaFiles {$genomefile} --genomeSAindexNbases 9
+STAR --runThreadN 4 --runMode genomeGenerate --genomeDir ${index_dir} \
+--genomeFastaFiles ${genomefile} --genomeSAindexNbases 9
