@@ -39,8 +39,8 @@ fi
 
 echo "Merging..."
 if [ ! -n "$(ls -A out/merged/ )" ]; then
-    for sid in $(ls data/*.fastq |cut -d "." -f1 | sed 's:data/::' | sort |uniq); do
-        bash scripts/merge_fastqs.sh data out/merged $sid
+    for sample_id in $(ls data/*.fastq.gz |cut -d "." -f1 | sed 's:data/::' | sort |uniq); do
+        bash scripts/merge_fastqs.sh data out/merged $sample_id
     done
 else
     echo "Files already merged. SKipping merging"

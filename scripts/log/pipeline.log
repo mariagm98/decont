@@ -1,0 +1,6 @@
+!!!!! WARNING:  Could not ls out/trimmed/*.fastq.gz
+
+EXITING: because of fatal INPUT file error: could not open read file: out/trimmed/*.fastq.gz
+SOLUTION: check that this file exists and has read permision.
+
+Mar 02 20:43:48 ...... FATAL ERROR, exiting
