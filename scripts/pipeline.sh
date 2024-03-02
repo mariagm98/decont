@@ -20,7 +20,6 @@ if [ ! -e "res/contaminants.fasta" ]; then
 else 
     echo "The contaminants database is ready. Indexing..."
 fi
-#Vemos si está el directorio.
 if [ ! -d "res/contaminants_index/" ]; then
     mkdir -p "res/contaminants_index"
 fi
